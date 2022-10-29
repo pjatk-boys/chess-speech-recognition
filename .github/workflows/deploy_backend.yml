@@ -25,7 +25,6 @@ jobs:
           password: ${{ secrets.REGISTRY_PASSWORD }}
 
       - name: Build and push image
-        uses: Azure/docker-login@v1
         run: |
           docker build backend -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/chess-voice-recognition
           docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/chess-voice-recognition
