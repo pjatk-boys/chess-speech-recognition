@@ -23,5 +23,17 @@ jobs:
           login-server: chessspeechrecognition.azurecr.io
           username: ${{ secrets.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
+      - run: |
+          docker build backend -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/chess-voice-recognition
+          docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/chess-voice-recognition
 
-      - run: docker build backend -t chessspeechrecognition.azurecr.io/chess-voice-recognition && docker push chessspeechrecognition.azurecr.io/chess-voice-recognition
+      - name: Deploy to Azure Container Instances
+        uses: Azure/aci-deploy@v1
+        with:
+          resource-group: ${{ secrets.RESOURCE_GROUP }}
+          dns-name-label: ${{ secrets.RESOURCE_GROUP }}${{ github.run_number }}
+          image: ${{ secrets.REGISTRY_LOGIN_SERVER }}/chess-voice-recognition:latest
+          registry-login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
+          registry-username: ${{ secrets.REGISTRY_USERNAME }}
+          registry-password: ${{ secrets.REGISTRY_PASSWORD }}
+          name: aci-sampleapp
