@@ -8,12 +8,6 @@ on:
   workflow_dispatch:
 
 jobs:
-  list-directory:
-    runs-on: ubuntu-latest
-
-    steps:
-        - name: Print the input name to STDOUT
-          run: echo ls
   push-to-registry:
     runs-on: ubuntu-latest
     steps:
@@ -26,7 +20,7 @@ jobs:
       - name: Azure Container Registry Login
         uses: Azure/docker-login@v1
         with:
-          login-server: contoso.azurecr.io
+          login-server: chessspeechrecognition.azurecr.io
           username: ${{ secrets.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
 
