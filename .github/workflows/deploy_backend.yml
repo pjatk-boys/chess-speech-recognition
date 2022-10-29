@@ -18,6 +18,7 @@ permissions:
 
 jobs:
   deploy:
+    runs-on: ubuntu-latest
     steps:
       - name: Azure Container Registry Login
         uses: Azure/docker-login@v1
