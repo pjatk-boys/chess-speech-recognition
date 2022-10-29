@@ -1,0 +1,31 @@
+# Simple workflow for deploying static content to GitHub Pages
+name: build and deploy backend
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["main"]
+    paths: ["backend/**"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    steps:
+      - name: Azure Container Registry Login
+        uses: Azure/docker-login@v1
+        with:
+            login-server: contoso.azurecr.io
+            username: ${{ secrets.REGISTRY_USERNAME }}
+            password: ${{ secrets.REGISTRY_PASSWORD }}
+
+        run: |
+          docker build . -t contoso.azurecr.io/k8sdemo:${{ github.sha }}
+          docker push contoso.azurecr.io/k8sdemo:${{ github.sha }}
