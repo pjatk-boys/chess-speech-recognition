@@ -8,9 +8,16 @@ on:
   workflow_dispatch:
 
 jobs:
+  list-directory:
+    runs-on: ubuntu-latest
+
+    steps:
+        - name: Print the input name to STDOUT
+          run: echo ls
   push-to-registry:
     runs-on: ubuntu-latest
     steps:
+      - name: checkout
         uses: actions/checkout@v3
       - name: Setup Node
         uses: actions/setup-node@v3
