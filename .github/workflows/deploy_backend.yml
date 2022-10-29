@@ -30,8 +30,8 @@ jobs:
           username: ${{ secrets.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
       - run: |
-        docker build backend -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/chess-voice-recognition
-        docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/chess-voice-recognition
+          docker build backend -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/chess-voice-recognition
+          docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/chess-voice-recognition
 
       - name: Deploy to Azure Container Instances
         uses: Azure/aci-deploy@v1
