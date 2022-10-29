@@ -30,4 +30,4 @@ jobs:
           username: ${{ secrets.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
 
-      - run: docker build backend -t chessspeechrecognition.azurecr.io/chess-voice-recognition && chessspeechrecognition.azurecr.io/chess-voice-recognition
+      - run: docker build backend -t chessspeechrecognition.azurecr.io/chess-voice-recognition && docker push chessspeechrecognition.azurecr.io/chess-voice-recognition
