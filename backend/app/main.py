@@ -1,9 +1,23 @@
 import uvicorn
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 from app.model import model
 
 app = FastAPI()
+
+origins = [
+    "http://pjatk-boys.github.io"
+    "https://pjatk-boys.github.io"
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.get("/")
