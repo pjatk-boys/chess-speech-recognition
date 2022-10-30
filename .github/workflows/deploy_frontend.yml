@@ -43,7 +43,7 @@ jobs:
         uses: actions/configure-pages@v2
       - name: Build
         working-directory: './frontend'
-        run: yarn build
+        run: VITE_BASE_URL=${GITHUB_REPOSITORY#*/} yarn build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
