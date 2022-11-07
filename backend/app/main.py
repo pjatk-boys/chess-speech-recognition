@@ -6,14 +6,9 @@ from app.model import model
 
 app = FastAPI()
 
-origins = [
-    "http://pjatk-boys.github.io"
-    "https://pjatk-boys.github.io"
-]
-
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins="https://pjatk-boys.github.io/",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -23,6 +18,7 @@ app.add_middleware(
 @app.get("/")
 async def get():
     return {"status": "ok"}
+
 
 app.include_router(model.router, prefix='/model')
 
