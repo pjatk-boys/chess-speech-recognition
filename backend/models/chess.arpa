@@ -1,0 +1,375 @@
+
+\data\
+ngram 1=30
+ngram 2=107
+ngram 3=225
+
+\1-grams:
+-0.7027071	</s>
+-99	<s>	-1.767344
+-2.067124	<unk>
+-1.605797	a	-0.9040192
+-1.605797	b	-0.9040192
+-1.605797	c	-0.9040192
+-1.65695	cztery	-1.767342
+-1.605797	d	-0.9040192
+-1.65695	dwa	-1.767342
+-1.65695	dziewięć	-1.767342
+-1.605797	e	-0.9040192
+-1.605797	f	-0.9040192
+-1.605797	g	-0.9040192
+-1.65695	goniec	-1.767342
+-1.605797	h	-0.9040192
+-1.65695	hetman	-1.767342
+-1.65695	jeden	-1.767342
+-1.65695	koń	-1.767342
+-1.65695	król	-1.767342
+-1.65695	królowa	-1.767342
+-0.7027071	na	-1.817832
+-1.65695	osiem	-1.767342
+-1.65695	pion	-1.767342
+-1.65695	pionek	-1.767342
+-1.65695	pięć	-1.767342
+-1.65695	siedem	-1.767342
+-1.65695	skoczek	-1.767342
+-1.65695	sześć	-1.767342
+-1.65695	trzy	-1.767342
+-1.65695	wieża	-1.767342
+
+\2-grams:
+-0.9602329	<s> goniec	0
+-0.9602329	<s> hetman	0
+-0.9602329	<s> koń	0
+-0.9602329	<s> król	0
+-0.9602329	<s> królowa	0
+-0.9602329	<s> pion	0
+-0.9602329	<s> pionek	0
+-0.9602329	<s> skoczek	0
+-0.9602329	<s> wieża	0
+-1	a cztery	0.8633229
+-1	a dwa	0.8633229
+-1	a dziewięć	0.8633229
+-1	a jeden	0.8633229
+-1	a osiem	0.8633229
+-1	a pięć	0.8633229
+-1	a siedem	0.8633229
+-1	a sześć	0.8633229
+-1	a trzy	0.8633229
+-1	b cztery	0.8633229
+-1	b dwa	0.8633229
+-1	b dziewięć	0.8633229
+-1	b jeden	0.8633229
+-1	b osiem	0.8633229
+-1	b pięć	0.8633229
+-1	b siedem	0.8633229
+-1	b sześć	0.8633229
+-1	b trzy	0.8633229
+-1	c cztery	0.8633229
+-1	c dwa	0.8633229
+-1	c dziewięć	0.8633229
+-1	c jeden	0.8633229
+-1	c osiem	0.8633229
+-1	c pięć	0.8633229
+-1	c siedem	0.8633229
+-1	c sześć	0.8633229
+-1	c trzy	0.8633229
+-0.005990364	cztery </s>
+-1	d cztery	0.8633229
+-1	d dwa	0.8633229
+-1	d dziewięć	0.8633229
+-1	d jeden	0.8633229
+-1	d osiem	0.8633229
+-1	d pięć	0.8633229
+-1	d siedem	0.8633229
+-1	d sześć	0.8633229
+-1	d trzy	0.8633229
+-0.005990364	dwa </s>
+-0.005990364	dziewięć </s>
+-1	e cztery	0.8633229
+-1	e dwa	0.8633229
+-1	e dziewięć	0.8633229
+-1	e jeden	0.8633229
+-1	e osiem	0.8633229
+-1	e pięć	0.8633229
+-1	e siedem	0.8633229
+-1	e sześć	0.8633229
+-1	e trzy	0.8633229
+-1	f cztery	0.8633229
+-1	f dwa	0.8633229
+-1	f dziewięć	0.8633229
+-1	f jeden	0.8633229
+-1	f osiem	0.8633229
+-1	f pięć	0.8633229
+-1	f siedem	0.8633229
+-1	f sześć	0.8633229
+-1	f trzy	0.8633229
+-1	g cztery	0.8633229
+-1	g dwa	0.8633229
+-1	g dziewięć	0.8633229
+-1	g jeden	0.8633229
+-1	g osiem	0.8633229
+-1	g pięć	0.8633229
+-1	g siedem	0.8633229
+-1	g sześć	0.8633229
+-1	g trzy	0.8633229
+-0.005990364	goniec na	0.9138127
+-1	h cztery	0.8633229
+-1	h dwa	0.8633229
+-1	h dziewięć	0.8633229
+-1	h jeden	0.8633229
+-1	h osiem	0.8633229
+-1	h pięć	0.8633229
+-1	h siedem	0.8633229
+-1	h sześć	0.8633229
+-1	h trzy	0.8633229
+-0.005990364	hetman na	0.9138127
+-0.005990364	jeden </s>
+-0.005990364	koń na	0.9138127
+-0.005990364	król na	0.9138127
+-0.005990364	królowa na	0.9138127
+-0.9084188	na a	0
+-0.9084188	na b	0
+-0.9084188	na c	0
+-0.9084188	na d	0
+-0.9084188	na e	0
+-0.9084188	na f	0
+-0.9084188	na g	0
+-0.9084188	na h	0
+-0.005990364	osiem </s>
+-0.005990364	pion na	0.9138127
+-0.005990364	pionek na	0.9138127
+-0.005990364	pięć </s>
+-0.005990364	siedem </s>
+-0.005990364	skoczek na	0.9138127
+-0.005990364	sześć </s>
+-0.005990364	trzy </s>
+-0.005990364	wieża na	0.9138127
+
+\3-grams:
+-1	na a cztery
+-1	na a dwa
+-1	na a dziewięć
+-1	na a jeden
+-1	na a osiem
+-1	na a pięć
+-1	na a siedem
+-1	na a sześć
+-1	na a trzy
+-1	na b cztery
+-1	na b dwa
+-1	na b dziewięć
+-1	na b jeden
+-1	na b osiem
+-1	na b pięć
+-1	na b siedem
+-1	na b sześć
+-1	na b trzy
+-1	na c cztery
+-1	na c dwa
+-1	na c dziewięć
+-1	na c jeden
+-1	na c osiem
+-1	na c pięć
+-1	na c siedem
+-1	na c sześć
+-1	na c trzy
+-0.04575749	a cztery </s>
+-0.04575749	b cztery </s>
+-0.04575749	c cztery </s>
+-0.04575749	d cztery </s>
+-0.04575749	e cztery </s>
+-0.04575749	f cztery </s>
+-0.04575749	g cztery </s>
+-0.04575749	h cztery </s>
+-1	na d cztery
+-1	na d dwa
+-1	na d dziewięć
+-1	na d jeden
+-1	na d osiem
+-1	na d pięć
+-1	na d siedem
+-1	na d sześć
+-1	na d trzy
+-0.04575749	a dwa </s>
+-0.04575749	b dwa </s>
+-0.04575749	c dwa </s>
+-0.04575749	d dwa </s>
+-0.04575749	e dwa </s>
+-0.04575749	f dwa </s>
+-0.04575749	g dwa </s>
+-0.04575749	h dwa </s>
+-0.04575749	a dziewięć </s>
+-0.04575749	b dziewięć </s>
+-0.04575749	c dziewięć </s>
+-0.04575749	d dziewięć </s>
+-0.04575749	e dziewięć </s>
+-0.04575749	f dziewięć </s>
+-0.04575749	g dziewięć </s>
+-0.04575749	h dziewięć </s>
+-1	na e cztery
+-1	na e dwa
+-1	na e dziewięć
+-1	na e jeden
+-1	na e osiem
+-1	na e pięć
+-1	na e siedem
+-1	na e sześć
+-1	na e trzy
+-1	na f cztery
+-1	na f dwa
+-1	na f dziewięć
+-1	na f jeden
+-1	na f osiem
+-1	na f pięć
+-1	na f siedem
+-1	na f sześć
+-1	na f trzy
+-1	na g cztery
+-1	na g dwa
+-1	na g dziewięć
+-1	na g jeden
+-1	na g osiem
+-1	na g pięć
+-1	na g siedem
+-1	na g sześć
+-1	na g trzy
+-0.005990364	<s> goniec na
+-1	na h cztery
+-1	na h dwa
+-1	na h dziewięć
+-1	na h jeden
+-1	na h osiem
+-1	na h pięć
+-1	na h siedem
+-1	na h sześć
+-1	na h trzy
+-0.005990364	<s> hetman na
+-0.04575749	a jeden </s>
+-0.04575749	b jeden </s>
+-0.04575749	c jeden </s>
+-0.04575749	d jeden </s>
+-0.04575749	e jeden </s>
+-0.04575749	f jeden </s>
+-0.04575749	g jeden </s>
+-0.04575749	h jeden </s>
+-0.005990364	<s> koń na
+-0.005990364	<s> król na
+-0.005990364	<s> królowa na
+-0.9488475	goniec na a
+-0.9488475	goniec na b
+-0.9488475	goniec na c
+-0.9488475	goniec na d
+-0.9488475	goniec na e
+-0.9488475	goniec na f
+-0.9488475	goniec na g
+-0.9488475	goniec na h
+-0.9488475	hetman na a
+-0.9488475	hetman na b
+-0.9488475	hetman na c
+-0.9488475	hetman na d
+-0.9488475	hetman na e
+-0.9488475	hetman na f
+-0.9488475	hetman na g
+-0.9488475	hetman na h
+-0.9488475	koń na a
+-0.9488475	koń na b
+-0.9488475	koń na c
+-0.9488475	koń na d
+-0.9488475	koń na e
+-0.9488475	koń na f
+-0.9488475	koń na g
+-0.9488475	koń na h
+-0.9488475	król na a
+-0.9488475	król na b
+-0.9488475	król na c
+-0.9488475	król na d
+-0.9488475	król na e
+-0.9488475	król na f
+-0.9488475	król na g
+-0.9488475	król na h
+-0.9488475	królowa na a
+-0.9488475	królowa na b
+-0.9488475	królowa na c
+-0.9488475	królowa na d
+-0.9488475	królowa na e
+-0.9488475	królowa na f
+-0.9488475	królowa na g
+-0.9488475	królowa na h
+-0.9488475	pion na a
+-0.9488475	pion na b
+-0.9488475	pion na c
+-0.9488475	pion na d
+-0.9488475	pion na e
+-0.9488475	pion na f
+-0.9488475	pion na g
+-0.9488475	pion na h
+-0.9488475	pionek na a
+-0.9488475	pionek na b
+-0.9488475	pionek na c
+-0.9488475	pionek na d
+-0.9488475	pionek na e
+-0.9488475	pionek na f
+-0.9488475	pionek na g
+-0.9488475	pionek na h
+-0.9488475	skoczek na a
+-0.9488475	skoczek na b
+-0.9488475	skoczek na c
+-0.9488475	skoczek na d
+-0.9488475	skoczek na e
+-0.9488475	skoczek na f
+-0.9488475	skoczek na g
+-0.9488475	skoczek na h
+-0.9488475	wieża na a
+-0.9488475	wieża na b
+-0.9488475	wieża na c
+-0.9488475	wieża na d
+-0.9488475	wieża na e
+-0.9488475	wieża na f
+-0.9488475	wieża na g
+-0.9488475	wieża na h
+-0.04575749	a osiem </s>
+-0.04575749	b osiem </s>
+-0.04575749	c osiem </s>
+-0.04575749	d osiem </s>
+-0.04575749	e osiem </s>
+-0.04575749	f osiem </s>
+-0.04575749	g osiem </s>
+-0.04575749	h osiem </s>
+-0.005990364	<s> pion na
+-0.005990364	<s> pionek na
+-0.04575749	a pięć </s>
+-0.04575749	b pięć </s>
+-0.04575749	c pięć </s>
+-0.04575749	d pięć </s>
+-0.04575749	e pięć </s>
+-0.04575749	f pięć </s>
+-0.04575749	g pięć </s>
+-0.04575749	h pięć </s>
+-0.04575749	a siedem </s>
+-0.04575749	b siedem </s>
+-0.04575749	c siedem </s>
+-0.04575749	d siedem </s>
+-0.04575749	e siedem </s>
+-0.04575749	f siedem </s>
+-0.04575749	g siedem </s>
+-0.04575749	h siedem </s>
+-0.005990364	<s> skoczek na
+-0.04575749	a sześć </s>
+-0.04575749	b sześć </s>
+-0.04575749	c sześć </s>
+-0.04575749	d sześć </s>
+-0.04575749	e sześć </s>
+-0.04575749	f sześć </s>
+-0.04575749	g sześć </s>
+-0.04575749	h sześć </s>
+-0.04575749	a trzy </s>
+-0.04575749	b trzy </s>
+-0.04575749	c trzy </s>
+-0.04575749	d trzy </s>
+-0.04575749	e trzy </s>
+-0.04575749	f trzy </s>
+-0.04575749	g trzy </s>
+-0.04575749	h trzy </s>
+-0.005990364	<s> wieża na
+
+\end\

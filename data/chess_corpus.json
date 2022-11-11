@@ -1,0 +1,37 @@
+{
+  "figury": [
+    "goniec",
+    "królowa",
+    "hetman",
+    "król",
+    "pionek",
+    "pion",
+    "koń",
+    "skoczek",
+    "wieża"
+  ],
+  "na": [
+    "na"
+  ],
+  "litery": [
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h"
+  ],
+  "numery": [
+    "jeden",
+    "dwa",
+    "trzy",
+    "cztery",
+    "pięć",
+    "sześć",
+    "siedem",
+    "osiem",
+    "dziewięć"
+  ]
+}
