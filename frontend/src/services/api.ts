@@ -6,16 +6,21 @@ const axiosInstance = axios.create({
 })
 
 export class ChessMoveValidationError extends Error {
-  constructor(options) {
+  constructor(options: ErrorOptions) {
     super('Undistinguishable move', options)
   }
+}
+
+type PostChessMoveAudioResponse = {
+  call: string,
+  text: string
 }
 
 export const postChessMoveAudio = (file: File) => {
   const formData = new FormData();
   formData.append('file', file);
 
-  return axiosInstance.post('/model/predict', formData).catch((err: AxiosError) => {
+  return axiosInstance.post<PostChessMoveAudioResponse>('/model/predict', formData).then(res => res.data).catch((err: AxiosError) => {
     switch(err.status) {
       case 422: throw ChessMoveValidationError;
       default: throw err

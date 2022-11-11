@@ -4,20 +4,19 @@ type ChessboardOptions = {
 
 type ChessboardSquare = `${'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'h' }${'1' | '2' | '3' | '4' |'5' | '6' | '7' | '8'}`
 
-declare enum ChessboardPiece {
-  BLACK_PAWN,
-  BLACK_KNIGHT,
-  BLACK_BISHOP,
-  BLACK_ROOK,
-  BLACK_QUEEN,
-  BLACK_KING,
-  WHITE_PAWN,
-  WHITE_KNIGHT,
-  WHITE_BISHOP,
-  WHITE_ROOK,
-  WHITE_QUEEN,
-  WHITE_KING,
-}
+type ChessboardPiece =
+  | 'bp'
+  | 'bn'
+  | 'bb'
+  | 'br'
+  | 'bq'
+  | 'bk'
+  | 'wp'
+  | 'wn'
+  | 'wb'
+  | 'wr'
+  | 'wq'
+  | 'wk'
 
 declare module "cm-chessboard" {
   class Chessboard {
@@ -31,14 +30,20 @@ declare module "cm-chessboard" {
   }
 }
 
-type EngineSquare = `${'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H' }${'1' | '2' | '3' | '4' |'5' | '6' | '7' | '8'}`
+type EngineSquare = Uppercase<ChessboardSquare>
 type EngineMove = Record<EngineSquare, EngineSquare>
-
+type EngineMoves = Record<EngineSquare, EngineSquare[]>
+type EngineConfiguration = {
+  turn: "black" | "white",
+  pieces: Partial<Record<EngineSquare, string>>
+}
 declare module "js-chess-engine" {
   class Game {
     constructor(fen: string);
 
     move(from: ChessboardSquare, to: ChessboardSquare): void;
+    moves(): EngineMoves
     aiMove(aiLevel: number): EngineMove
+    exportJson(): EngineConfiguration
   }
 }

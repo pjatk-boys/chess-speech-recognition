@@ -1,5 +1,6 @@
 import { createSignal } from "solid-js";
 import { ChessMoveValidationError, postChessMoveAudio } from "../services/api";
+import { getGameHelpers } from "./gameHelpers";
 
 export enum AudioError {
   PERMISSION_DENIED = 'Zablokowano dostęp do mikrofonu',
@@ -9,12 +10,17 @@ export enum AudioError {
 
 const AUDIO_TYPE = "audio/webm";
 
-export const getAudioHelpers = () => {
+type GetAudioHelpersParams = {
+  movePiece: ReturnType<typeof getGameHelpers>['movePiece']
+}
+
+export const getAudioHelpers = ({movePiece}: GetAudioHelpersParams) => {
   let mediaRecorder: MediaRecorder;
   let timeoutId: NodeJS.Timeout;
 
   const [isRecording, setIsRecording] = createSignal(false);
   const [audioError, setAudioError] = createSignal<AudioError>();
+  const [audioText, setAudioText] = createSignal('')
 
   const startRecording = async () => {
     const stream = await navigator.mediaDevices
@@ -34,8 +40,9 @@ export const getAudioHelpers = () => {
     mediaRecorder.addEventListener("dataavailable", async ({ data }) => {
       if (mediaRecorder.state === "inactive") {
         try {
-          const move = await postChessMoveAudio(new File([data], 'audio.webm'));
-          console.log(move)
+          const {call, text} = await postChessMoveAudio(new File([data], 'audio.webm'));
+          movePiece(call)
+          setAudioText(text);
         } catch (error) {
           if(error instanceof ChessMoveValidationError) {
             setAudioError(AudioError.VALIDATION_ERROR)
@@ -65,5 +72,5 @@ export const getAudioHelpers = () => {
     }
   };
 
-  return { toggleRecording, audioError, isRecording };
+  return { toggleRecording, audioError, isRecording, audioText };
 };

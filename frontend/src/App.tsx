@@ -1,20 +1,31 @@
-import { Component, createEffect, createSignal } from "solid-js";
+import { Component } from "solid-js";
 
 import classes from "./App.module.scss";
 import { getAudioHelpers } from "./helpers/audioHelpers";
 import { getGameHelpers } from "./helpers/gameHelpers";
-import { postChessMoveAudio } from "./services/api";
 
 const BOARD_ID = "board1";
 
 const App: Component = () => {
-  const { movePiece, makeRandomMove, isMakingMove } = getGameHelpers(BOARD_ID);
-  const { toggleRecording, isRecording, audioError } = getAudioHelpers()
+  const { movePiece, moveError, makeRandomMove, isMakingMove } =
+    getGameHelpers(BOARD_ID);
+  const { toggleRecording, audioText, isRecording, audioError } =
+    getAudioHelpers({
+      movePiece,
+    });
 
   return (
     <div class={classes.app}>
       <div id={BOARD_ID} class={classes.board}></div>
       <div class={classes.actionsContainer}>
+        {!isRecording() && (
+          <>
+            {audioError() && <p class={classes.errorMessage}>{audioError()}</p>}
+            {moveError() && <p class={classes.errorMessage}>{moveError()}</p>}
+            {audioText() && <p>Przetworzony ruch: {audioText()}</p>}
+          </>
+        )}
+
         <button
           class={classes.microphoneButton}
           onClick={toggleRecording}
@@ -25,7 +36,6 @@ const App: Component = () => {
             <path d="M94.4 214.5c-6.8 0-12.3 5.5-12.3 12.3 0 85.9 66.7 156.6 151.1 162.8v76.7h-63.9c-6.8 0-12.3 5.5-12.3 12.3s5.5 12.3 12.3 12.3h152.3c6.8 0 12.3-5.5 12.3-12.3s-5.5-12.3-12.3-12.3h-63.9v-76.7c84.4-6.3 151.1-76.9 151.1-162.8 0-6.8-5.5-12.3-12.3-12.3s-12.3 5.5-12.3 12.3c0 76.6-62.3 138.9-138.9 138.9s-138.9-62.3-138.9-138.9c.2-6.8-5.2-12.3-12-12.3z" />
           </svg>
         </button>
-        {audioError() && <p class={classes.errorMessage}>{audioError()}</p>}
         <button
           class={classes.button}
           onClick={makeRandomMove}
