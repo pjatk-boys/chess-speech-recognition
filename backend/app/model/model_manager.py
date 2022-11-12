@@ -34,6 +34,52 @@ class ModelManager:
         tokens = [x[0] for x in sorted(self.processor.tokenizer.get_vocab().items(), key=lambda x: x[1])]
         tokens[4] = ' '
         decoder = build_ctcdecoder(tokens,
-                                   '/Users/kuba/PJATK/semestr3/ZUM/chess-speech-recognition/backend/models/chess.arpa',
+                                   './models/chess.arpa',
                                    alpha=2.0, beta=-1.0)
         return decoder
+
+
+class ModelInterpreter:
+    def __init__(self):
+        self.code_mapping = {
+            "figures": {"goniec": "g", "koń": "g", "laufer": "g", "wieża": "w",
+                        "królowa": "", "hetman": "", "król": "", "skoczek": "",
+                        "pionek": "", "pion": ""  # leave these two empty
+                        },
+            "numbers": {'jeden': "1", "dwa": "2", "trzy": "3", "cztery": "4",
+                        "pięć": "5", "sześć": "6", "siedem": "7", "osiem": "8", "dziewięć": "9"},
+        }
+
+    def interpret(self, sentence: str):
+        """
+        based on chess call parse it to code move.
+        i.e: "wieża na e sześć" -> "wE6"
+        """
+        split_sentence = sentence.split(" ")
+        if len(split_sentence) == 4:
+            figure = split_sentence[0]  # koń
+            na = split_sentence[1]  # na
+            letter = split_sentence[2]  # e
+            number = split_sentence[3]  # 6
+            try:
+                return self.parse_to_code(figure, na, letter, number)
+            except (ValueError, KeyError):
+                return self.match_tokens_to_code()
+        else:
+            self.match_sentence_to_code()
+
+    def parse_to_code(self, figure, na, letter, number) -> str:
+        if na != "na":
+            raise ValueError
+        if len(letter) != 1:
+            raise ValueError
+
+        figure_code = self.code_mapping["figures"][figure]
+        number_code = self.code_mapping["numbers"][number]
+        return figure_code + letter.upper() + number_code
+
+    def match_sentence_to_code(self):
+        return "sentence"
+
+    def match_tokens_to_code(self):
+        return "tokens"
