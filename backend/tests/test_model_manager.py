@@ -1,6 +1,9 @@
+import json
 import unittest
+from pathlib import Path
 from unittest import TestCase
 
+import jiwer
 import wavio
 
 from app.model.model_manager import ModelManager, ModelInterpreter
@@ -50,6 +53,27 @@ class TestModelInterpreter(TestCase):
         interpreted_code = self.model_interpreter.interpret(sentence)
         # then
         self.assertEqual(excepted_code, interpreted_code)
+
+
+class TestModelAccuracy(TestCase):
+    def setUp(self) -> None:
+        self.model_manager = ModelManager()
+
+    def test_accuracy(self):
+        with open("../data/recordings/calls/text.json", 'rt') as f:
+            ground_truth = json.loads(f.read())
+        preds = {}
+        for f in Path('../data/recordings/calls').glob('*.wav'):
+            wav_file = read_wav_from_file(str(f))
+            predicted_value = self.model_manager.predict(wav_file)
+            preds[f.stem] = predicted_value
+
+        r, h = [], []
+        for f in preds:
+            r.append(ground_truth[f])
+            h.append(preds[f])
+        measures = jiwer.compute_measures(r, h)
+        self.assertLess(measures['wer'], 0.1)
 
 
 if __name__ == '__main__':
