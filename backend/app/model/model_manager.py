@@ -6,10 +6,10 @@ from transformers import Wav2Vec2ForCTC, Wav2Vec2Processor
 
 
 class ModelManager:
-    def __init__(self):
+    def __init__(self, decoder_alpha: float = 1, decoder_beta: float = 2):
         self.model = Wav2Vec2ForCTC.from_pretrained('facebook/wav2vec2-base-10k-voxpopuli-ft-pl')  # .to('cuda')
         self.processor = Wav2Vec2Processor.from_pretrained('facebook/wav2vec2-base-10k-voxpopuli-ft-pl')
-        self.decoder: BeamSearchDecoderCTC = self.read_decoder()
+        self.decoder: BeamSearchDecoderCTC = self.read_decoder(alpha=decoder_alpha, beta=decoder_beta)
         self.target_sr: int = 16000
 
     def predict(self, data: wavio.Wav) -> str:
@@ -24,7 +24,7 @@ class ModelManager:
         fs = data.rate
         return librosa.resample(data.data.squeeze().astype('float32'), orig_sr=fs, target_sr=self.target_sr)
 
-    def read_decoder(self) -> BeamSearchDecoderCTC:
+    def read_decoder(self, alpha: float = 1, beta: float = 2) -> BeamSearchDecoderCTC:
         """
         raises a warning: Only 28 unigrams passed as vocabulary. Is this small or artificial data?
         yes, it's small data
@@ -35,7 +35,7 @@ class ModelManager:
         tokens[4] = ' '
         decoder = build_ctcdecoder(tokens,
                                    './models/chess.arpa',
-                                   alpha=2.0, beta=-1.0)
+                                   alpha=alpha, beta=beta)
         return decoder
 
 

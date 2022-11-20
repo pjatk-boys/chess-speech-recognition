@@ -57,7 +57,7 @@ class TestModelInterpreter(TestCase):
 
 class TestModelAccuracy(TestCase):
     def setUp(self) -> None:
-        self.model_manager = ModelManager()
+        self.model_manager = ModelManager(0.5, 2.4)
 
     def test_accuracy(self):
         with open("../data/recordings/calls/text.json", 'rt') as f:
