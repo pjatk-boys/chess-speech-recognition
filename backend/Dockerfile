@@ -1,4 +1,4 @@
-FROM tiangolo/uvicorn-gunicorn-fastapi:python3.9-slim
+FROM tiangolo/uvicorn-gunicorn-fastapi:python3.9
 
 RUN apt-get update
 RUN pip install --upgrade pip
