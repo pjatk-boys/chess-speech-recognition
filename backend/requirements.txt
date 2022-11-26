@@ -4,3 +4,13 @@ fastapi
 requests
 pydantic
 requests
+
+# model
+torch
+https://github.com/huggingface/transformers/archive/refs/heads/master.zip
+https://github.com/kensho-technologies/pyctcdecode/archive/refs/heads/main.zip
+https://github.com/kpu/kenlm/archive/master.zip
+wavio
+jiwer
+arpa
+librosa
